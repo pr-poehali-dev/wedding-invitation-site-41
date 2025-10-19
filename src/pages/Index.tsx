@@ -168,10 +168,10 @@ const Index = () => {
                 </div>
               </div>
               
-              <p className="text-lg mb-4 text-foreground">Парк "Сокольники"</p>
+              <p className="text-lg mb-4 text-foreground">Центральный парк культуры и отдыха</p>
               <p className="text-muted-foreground mb-6">
-                ул. Сокольнический Вал, 1, стр. 1<br />
-                Москва, Россия
+                ул. Гоголя, 33<br />
+                Курган, Россия
               </p>
               
               <Button className="w-full bg-primary hover:bg-primary/90 text-foreground">
