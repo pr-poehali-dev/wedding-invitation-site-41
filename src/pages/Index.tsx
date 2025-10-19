@@ -39,13 +39,15 @@ const Index = () => {
   };
 
   useEffect(() => {
-    const audio = new Audio('https://cdn.poehali.dev/files/beautiful-boys-gentle-love.mp3');
+    const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
     audio.loop = true;
     audio.volume = 0.3;
     audioRef.current = audio;
     
     const playAudio = () => {
-      audio.play().catch(() => {});
+      audio.play().catch((error) => {
+        console.log('Автовоспроизведение заблокировано. Нажмите кнопку воспроизведения.');
+      });
       setIsPlaying(true);
       document.removeEventListener('click', playAudio);
     };
