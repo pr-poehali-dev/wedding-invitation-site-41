@@ -47,11 +47,18 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/10 via-secondary/10 to-muted/20">
       <section className="relative min-h-screen flex items-center justify-center px-4 py-20">
-        <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/projects/3b0464e8-950c-419a-9c87-cdbc3801b292/files/982856b5-f1c4-4ae9-8abb-6c448c8a4c27.jpg')] bg-cover bg-center opacity-10" />
+        <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/files/d0081829-e288-4879-967d-9b9ade32ba04.jpeg')] bg-cover bg-center opacity-20" />
         
         <div className="relative z-10 text-center max-w-4xl mx-auto animate-fade-in">
-          <div className="mb-8">
-            <Icon name="Heart" size={48} className="mx-auto text-secondary mb-4" />
+          <div className="mb-12">
+            <div className="relative overflow-hidden rounded-3xl shadow-2xl max-w-md mx-auto mb-8">
+              <img
+                src="https://cdn.poehali.dev/files/d0081829-e288-4879-967d-9b9ade32ba04.jpeg"
+                alt="Алиса и Владислав"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <Icon name="Heart" size={48} className="mx-auto text-secondary" />
           </div>
           
           <h1 className="text-7xl md:text-9xl font-serif font-light mb-6 text-foreground">
