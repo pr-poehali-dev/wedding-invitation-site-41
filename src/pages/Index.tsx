@@ -100,9 +100,30 @@ const Index = () => {
               
               <div className="text-center md:text-left">
                 <h3 className="text-3xl font-serif mb-4 text-foreground">Элегантный стиль</h3>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
                   Мы будем рады видеть вас в нарядных вечерних платьях и костюмах. 
                   Цветовая палитра: пастельные оттенки лаванды, розового и персикового прекрасно впишутся в атмосферу нашего праздника.
+                </p>
+                <div className="flex gap-3 justify-center md:justify-start mt-4">
+                  <div className="w-12 h-12 rounded-full bg-purple-200 border-2 border-purple-300" title="Лаванда"></div>
+                  <div className="w-12 h-12 rounded-full bg-pink-200 border-2 border-pink-300" title="Розовый"></div>
+                  <div className="w-12 h-12 rounded-full bg-orange-200 border-2 border-orange-300" title="Персиковый"></div>
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="p-8 md:p-12 bg-white/80 border-primary/20 mt-8">
+            <div className="flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-shrink-0">
+                <Icon name="Info" size={64} className="text-primary" />
+              </div>
+              
+              <div className="text-center md:text-left">
+                <h3 className="text-3xl font-serif mb-4 text-foreground">Важная информация</h3>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Наше мероприятие рассчитано на взрослую компанию (18+). 
+                  Мы будем признательны, если детей оставите дома — это позволит всем насладиться праздником в полной мере.
                 </p>
               </div>
             </div>
