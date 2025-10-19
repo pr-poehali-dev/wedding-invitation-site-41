@@ -30,20 +30,7 @@ const Index = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const photos = [
-    {
-      url: 'https://cdn.poehali.dev/projects/3b0464e8-950c-419a-9c87-cdbc3801b292/files/5b68de10-929a-4f7d-a3c7-79ce1aa833ad.jpg',
-      title: 'Наша история',
-    },
-    {
-      url: 'https://cdn.poehali.dev/projects/3b0464e8-950c-419a-9c87-cdbc3801b292/files/982856b5-f1c4-4ae9-8abb-6c448c8a4c27.jpg',
-      title: 'Вместе навсегда',
-    },
-    {
-      url: 'https://cdn.poehali.dev/projects/3b0464e8-950c-419a-9c87-cdbc3801b292/files/259acbd4-2793-48df-877d-b81c0fa14b6e.jpg',
-      title: 'Наш праздник',
-    },
-  ];
+
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/10 via-secondary/10 to-muted/20">
@@ -94,35 +81,6 @@ const Index = () => {
                   {item.label}
                 </div>
               </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-serif text-center mb-16 text-foreground">
-            Наша история любви
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {photos.map((photo, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <img
-                  src={photo.url}
-                  alt={photo.title}
-                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <p className="text-white text-xl font-serif">{photo.title}</p>
-                  </div>
-                </div>
-              </div>
             ))}
           </div>
         </div>
