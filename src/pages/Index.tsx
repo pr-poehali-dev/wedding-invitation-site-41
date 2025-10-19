@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -18,19 +18,35 @@ const Index = () => {
     attendance: 'yes',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
   };
 
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        audioRef.current.play().catch(() => {});
+        setIsPlaying(true);
+      }
+    }
+  };
+
   useEffect(() => {
     const audio = new Audio('https://cdn.poehali.dev/files/beautiful-boys-gentle-love.mp3');
     audio.loop = true;
     audio.volume = 0.3;
+    audioRef.current = audio;
     
     const playAudio = () => {
       audio.play().catch(() => {});
+      setIsPlaying(true);
       document.removeEventListener('click', playAudio);
     };
     
@@ -64,6 +80,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-primary/10 via-secondary/10 to-muted/20">
+      <button
+        onClick={toggleMusic}
+        className="fixed bottom-8 right-8 z-50 p-4 bg-primary/90 hover:bg-primary text-white rounded-full shadow-lg transition-all hover:scale-110"
+        aria-label={isPlaying ? 'Остановить музыку' : 'Включить музыку'}
+      >
+        <Icon name={isPlaying ? 'Pause' : 'Play'} size={24} />
+      </button>
       <section className="relative min-h-screen flex items-center justify-center px-4 py-20">
         <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/files/d0081829-e288-4879-967d-9b9ade32ba04.jpeg')] bg-cover bg-center opacity-20" />
         
