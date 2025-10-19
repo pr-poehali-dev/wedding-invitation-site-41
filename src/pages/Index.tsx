@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const weddingDate = new Date('2026-06-26T15:00:00');
+  const weddingDate = new Date('2026-06-26T10:00:00');
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -55,7 +55,7 @@ const Index = () => {
             <span className="font-medium">26 июня 2026</span>
             <span className="text-primary">•</span>
             <Icon name="Clock" size={20} />
-            <span className="font-medium">15:00</span>
+            <span className="font-medium">10:00</span>
           </div>
         </div>
       </section>
@@ -122,11 +122,11 @@ const Index = () => {
                 <Icon name="Church" size={32} className="text-primary flex-shrink-0" />
                 <div>
                   <h3 className="text-2xl font-serif mb-2 text-foreground">Церемония</h3>
-                  <p className="text-muted-foreground">15:00</p>
+                  <p className="text-muted-foreground">10:00</p>
                 </div>
               </div>
               
-              <p className="text-lg mb-4 text-foreground">Центральный парк культуры и отдыха</p>
+              <p className="text-lg mb-4 text-foreground">ЗАГС города Кургана</p>
               <p className="text-muted-foreground mb-6">
                 ул. Рихарда Зорге, 48<br />
                 Курган, Россия
@@ -147,7 +147,7 @@ const Index = () => {
                 </div>
               </div>
               
-              <p className="text-lg mb-4 text-foreground">Ресторан "Palazzo"</p>
+              <p className="text-lg mb-4 text-foreground">«Мамин зал»</p>
               <p className="text-muted-foreground mb-6">
                 Троицкая площадь, 1а<br />
                 Курган, Россия
