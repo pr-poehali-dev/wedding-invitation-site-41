@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
@@ -11,6 +12,17 @@ const Index = () => {
     minutes: 0,
     seconds: 0,
   });
+  const [formData, setFormData] = useState({
+    name: '',
+    guests: '',
+    attendance: 'yes',
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -180,6 +192,113 @@ const Index = () => {
               </Button>
             </Card>
           </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 bg-white/50 backdrop-blur-sm">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-5xl md:text-6xl font-serif text-center mb-8 text-foreground">
+            Наша фотография
+          </h2>
+          
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl max-w-2xl mx-auto mb-20">
+            <img
+              src="https://cdn.poehali.dev/files/d0081829-e288-4879-967d-9b9ade32ba04.jpeg"
+              alt="Алиса и Владислав"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4">
+        <div className="max-w-2xl mx-auto">
+          <h2 className="text-5xl md:text-6xl font-serif text-center mb-8 text-foreground">
+            Подтверждение присутствия
+          </h2>
+          
+          <p className="text-center text-lg text-muted-foreground mb-12">
+            Пожалуйста, подтвердите своё участие до 1 июня 2026 года
+          </p>
+
+          {!isSubmitted ? (
+            <Card className="p-8 md:p-12 bg-white/80 border-primary/20">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Ваше имя и фамилия *
+                  </label>
+                  <Input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Иван Иванов"
+                    className="w-full"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-2">
+                    Количество гостей *
+                  </label>
+                  <Input
+                    type="number"
+                    required
+                    min="1"
+                    max="5"
+                    value={formData.guests}
+                    onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
+                    placeholder="2"
+                    className="w-full"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-foreground mb-3">
+                    Вы придёте? *
+                  </label>
+                  <div className="space-y-2">
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="attendance"
+                        value="yes"
+                        checked={formData.attendance === 'yes'}
+                        onChange={(e) => setFormData({ ...formData, attendance: e.target.value })}
+                        className="w-4 h-4 text-primary"
+                      />
+                      <span className="text-foreground">Да, с удовольствием!</span>
+                    </label>
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="radio"
+                        name="attendance"
+                        value="no"
+                        checked={formData.attendance === 'no'}
+                        onChange={(e) => setFormData({ ...formData, attendance: e.target.value })}
+                        className="w-4 h-4 text-primary"
+                      />
+                      <span className="text-foreground">К сожалению, не смогу</span>
+                    </label>
+                  </div>
+                </div>
+
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-foreground text-lg py-6">
+                  <Icon name="Send" size={20} className="mr-2" />
+                  Отправить подтверждение
+                </Button>
+              </form>
+            </Card>
+          ) : (
+            <Card className="p-8 md:p-12 bg-white/80 border-primary/20 text-center">
+              <Icon name="CheckCircle" size={64} className="mx-auto text-green-500 mb-4" />
+              <h3 className="text-2xl font-serif mb-3 text-foreground">Спасибо за ответ!</h3>
+              <p className="text-lg text-muted-foreground">
+                Мы получили ваше подтверждение. До встречи на празднике!
+              </p>
+            </Card>
+          )}
         </div>
       </section>
 
