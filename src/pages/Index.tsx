@@ -25,6 +25,24 @@ const Index = () => {
   };
 
   useEffect(() => {
+    const audio = new Audio('https://cdn.poehali.dev/files/beautiful-boys-gentle-love.mp3');
+    audio.loop = true;
+    audio.volume = 0.3;
+    
+    const playAudio = () => {
+      audio.play().catch(() => {});
+      document.removeEventListener('click', playAudio);
+    };
+    
+    document.addEventListener('click', playAudio);
+    
+    return () => {
+      audio.pause();
+      document.removeEventListener('click', playAudio);
+    };
+  }, []);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = weddingDate.getTime() - now;
@@ -198,22 +216,6 @@ const Index = () => {
                 Посмотреть на карте
               </Button>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 bg-white/50 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-5xl md:text-6xl font-serif text-center mb-8 text-foreground">
-            Наша фотография
-          </h2>
-          
-          <div className="relative overflow-hidden rounded-2xl shadow-2xl max-w-2xl mx-auto mb-20">
-            <img
-              src="https://cdn.poehali.dev/files/d0081829-e288-4879-967d-9b9ade32ba04.jpeg"
-              alt="Алиса и Владислав"
-              className="w-full h-auto object-cover"
-            />
           </div>
         </div>
       </section>
