@@ -128,7 +128,7 @@ const Index = () => {
               
               <p className="text-lg mb-4 text-foreground">Центральный парк культуры и отдыха</p>
               <p className="text-muted-foreground mb-6">
-                ул. Гоголя, 33<br />
+                ул. Рихарда Зорге, 48<br />
                 Курган, Россия
               </p>
               
@@ -149,8 +149,8 @@ const Index = () => {
               
               <p className="text-lg mb-4 text-foreground">Ресторан "Palazzo"</p>
               <p className="text-muted-foreground mb-6">
-                Кутузовский проспект, 48<br />
-                Москва, Россия
+                Троицкая площадь, 1а<br />
+                Курган, Россия
               </p>
               
               <Button className="w-full bg-secondary hover:bg-secondary/90 text-foreground">
