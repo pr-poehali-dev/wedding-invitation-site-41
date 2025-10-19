@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const weddingDate = new Date('2025-08-15T15:00:00');
+  const weddingDate = new Date('2026-06-26T15:00:00');
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -65,7 +65,7 @@ const Index = () => {
           
           <div className="flex items-center justify-center gap-3 text-lg text-foreground/80">
             <Icon name="Calendar" size={20} />
-            <span className="font-medium">15 августа 2025</span>
+            <span className="font-medium">26 июня 2026</span>
             <span className="text-primary">•</span>
             <Icon name="Clock" size={20} />
             <span className="font-medium">15:00</span>
